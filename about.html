@@ -30,6 +30,7 @@
 </head>
 
 <body class="about-page">
+  
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
@@ -279,6 +280,43 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+    <script>
+    // Disable right click
+    document.addEventListener('contextmenu', e => e.preventDefault());
+
+    // Disable copy, paste, cut
+    ['copy', 'paste', 'cut'].forEach(evt => {
+      document.addEventListener(evt, e => e.preventDefault());
+    });
+
+    // Disable certain keyboard shortcuts
+    document.onkeydown = function(e) {
+      if (e.ctrlKey && ['u','c','v','x','s','a'].includes(e.key.toLowerCase())) {
+        e.preventDefault();
+      }
+      if (e.key === "F12") {
+        e.preventDefault();
+      }
+    };
+
+    // Detect if DevTools is open (basic trick)
+    (function() {
+      let devtoolsOpen = false;
+      const element = new Image();
+      Object.defineProperty(element, 'id', {
+        get: function() {
+          devtoolsOpen = true;
+          alert("Developer Tools detected!");
+          window.location.href = "about:blank";
+        }
+      });
+      setInterval(() => {
+        devtoolsOpen = false;
+        console.log(element);
+      }, 1000);
+    })();
+  </script>
 
 </body>
 

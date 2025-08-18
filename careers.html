@@ -267,6 +267,43 @@ With deep domain knowledge, we empower insurers to launch faster, scale efficien
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/js/main.js"></script>
 
+    <script>
+    // Disable right click
+    document.addEventListener('contextmenu', e => e.preventDefault());
+
+    // Disable copy, paste, cut
+    ['copy', 'paste', 'cut'].forEach(evt => {
+      document.addEventListener(evt, e => e.preventDefault());
+    });
+
+    // Disable certain keyboard shortcuts
+    document.onkeydown = function(e) {
+      if (e.ctrlKey && ['u','c','v','x','s','a'].includes(e.key.toLowerCase())) {
+        e.preventDefault();
+      }
+      if (e.key === "F12") {
+        e.preventDefault();
+      }
+    };
+
+    // Detect if DevTools is open (basic trick)
+    (function() {
+      let devtoolsOpen = false;
+      const element = new Image();
+      Object.defineProperty(element, 'id', {
+        get: function() {
+          devtoolsOpen = true;
+          alert("Developer Tools detected!");
+          window.location.href = "about:blank";
+        }
+      });
+      setInterval(() => {
+        devtoolsOpen = false;
+        console.log(element);
+      }, 1000);
+    })();
+  </script>
+
   <script>
     function showContent(event, id) {
       event.preventDefault();
