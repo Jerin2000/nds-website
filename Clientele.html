@@ -230,7 +230,7 @@
     </div>
   </div>
 
-  <style>
+  <!-- <style>
 .logo-marquee {
   overflow: hidden;
   white-space: nowrap;
@@ -256,7 +256,44 @@
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); } /* Moves exactly one set's width */
 }
+  </style> -->
+
+  <style>
+    .logo-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.marquee-content {
+  display: inline-flex;
+  animation: scroll-left 60s linear infinite; /* Slower for more logos */
+}
+
+.marquee-content img {
+  height: 80px;
+  margin: 0 40px;
+  transition: transform 0.3s;
+}
+
+.marquee-content img:hover {
+  transform: scale(1.1);
+}
+
+/* Pause scrolling when hovering over the marquee area */
+.logo-marquee:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Moves exactly one set's width */
+}
   </style>
+
+
+
+
 </section>
 
 
