@@ -53,6 +53,10 @@ body {
   color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
+ -webkit-user-select: none;
+ -moz-user-select: none;
+ -ms-user-select: none;
+  user-select: none;
 }
 
 a {
@@ -1382,8 +1386,9 @@ section,
 
 .service-details ul li {
   padding: 5px 0;
-  display: flex;
+  /* display: flex; */
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .service-details ul i {
@@ -1786,3 +1791,18 @@ section,
     white-space: normal;
     line-height: 1.4;
   }
+
+  .service-link.active {
+  background-color: #f26522; /* Orange */
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.career-link.active {
+  color: #fff; /* text color */
+  background-color: #f2741f; /* highlight background */
+  border-radius: 5px;
+  padding: 5px 10px;
+  display: inline-block;
+}
