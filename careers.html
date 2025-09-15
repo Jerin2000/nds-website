@@ -27,7 +27,7 @@
     <div class="container-fluid container-xl d-flex justify-content-between align-items-center">
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="assets/img/logo_footer.png" alt="Newdream Logo">
-        <img src="assets/img/Microsoft-partner.png" style="height: 70px; width: 150px;" alt="Microsoft Partner">
+        <!-- <img src="assets/img/Microsoft-partner.png" style="height: 70px; width: 150px;" alt="Microsoft Partner"> -->
       </a>
       <nav id="navmenu" class="navmenu">
         <ul>
@@ -35,7 +35,7 @@
           <li><a href="about.html">Who Are We</a></li>
           <li><a href="service-details.html">Our Services</a></li>
           <li><a href="Clientele.html">Clientele</a></li>
-          <li><a href="membership.html">Membership</a></li>
+          <!-- <li><a href="membership.html">Membership</a></li> -->
           <li><a href="careers.html" class="active">Careers</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
@@ -67,10 +67,10 @@
             <div class="service-box">
               <h4>Current Openings</h4>
               <div class="services-list">
-                <a href="#software" onclick="showContent(event, 'software')"><i class="bi bi-arrow-right-circle"></i><span>Software Analyst</span></a>
-                <a href="#business" onclick="showContent(event, 'business')"><i class="bi bi-arrow-right-circle"></i><span>Business Analyst</span></a>
-                <a href="#project_man" onclick="showContent(event, 'project_man')"><i class="bi bi-arrow-right-circle"></i><span>IT Project Manager</span></a>
-                <a href="#seniordev" onclick="showContent(event, 'seniordev')"><i class="bi bi-arrow-right-circle"></i><span>Senior .Net Software Developer</span></a>
+                <a href="#software" class="career-link" onclick="showContent(event, 'software')"><i class="bi bi-arrow-right-circle"></i><span>Software Analyst</span></a>
+                <a href="#business" class="career-link" onclick="showContent(event, 'business')"><i class="bi bi-arrow-right-circle"></i><span>Business Analyst</span></a>
+                <a href="#project_man" class="career-link" onclick="showContent(event, 'project_man')"><i class="bi bi-arrow-right-circle"></i><span>IT Project Manager</span></a>
+                <a href="#seniordev" class="career-link" onclick="showContent(event, 'seniordev')"><i class="bi bi-arrow-right-circle"></i><span>Senior .Net Software Developer</span></a>
                 
               </div>
             </div>
@@ -235,7 +235,7 @@ With deep domain knowledge, we empower insurers to launch faster, scale efficien
                 <li><a href="about.html">Who Are We</a></li>
                 <li><a href="service-details.html">Services</a></li>
                 <li><a href="Clientele.html">Clientele</a></li>
-                <li><a href="membership.html">Membership</a></li>
+                <!-- <li><a href="membership.html">Membership</a></li> -->
                 <li><a href="careers.html">Careers</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
               </ul>
@@ -261,10 +261,11 @@ With deep domain knowledge, we empower insurers to launch faster, scale efficien
   <div id="preloader"></div>
 
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
   <script src="assets/js/main.js"></script>
 
     <script>
@@ -299,12 +300,53 @@ With deep domain knowledge, we empower insurers to launch faster, scale efficien
       });
       setInterval(() => {
         devtoolsOpen = false;
-        console.log(element);
+
       }, 1000);
     })();
   </script>
 
-  <script>
+<script>
+  // Function to show selected content and highlight link
+  function showContent(event, id) {
+    event.preventDefault();
+
+    // Hide all content
+    const contents = document.querySelectorAll('.service-content');
+    contents.forEach(content => content.classList.add('d-none'));
+
+    // Show selected content
+    const target = document.getElementById(id);
+    if (target) {
+      target.classList.remove('d-none');
+
+      // Scroll to the section
+      const sectionTop = document.getElementById("service-details").offsetTop;
+      window.scrollTo({ top: sectionTop - 100, behavior: "smooth" });
+    }
+
+    // Highlight active link
+    const links = document.querySelectorAll('.career-link');
+    links.forEach(link => link.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+  }
+
+  // On page load, make the first career link active and show its content
+  window.addEventListener('DOMContentLoaded', () => {
+    const firstLink = document.querySelector('.career-link');
+    if (firstLink) {
+      firstLink.classList.add('active'); // highlight first link
+      const firstContentId = firstLink.getAttribute('onclick').match(/'([^']+)'/)[1];
+      const firstContent = document.getElementById(firstContentId);
+      if (firstContent) {
+        firstContent.classList.remove('d-none'); // show first content
+      }
+    }
+  });
+</script>
+
+
+
+    <!-- <script>
     function showContent(event, id) {
       event.preventDefault();
       const contents = document.querySelectorAll('.service-content');
@@ -317,7 +359,7 @@ With deep domain knowledge, we empower insurers to launch faster, scale efficien
         window.scrollTo({ top: sectionTop - 100, behavior: "smooth" });
       }
     }
-  </script>
+  </script> -->
 </body>
 
 </html>
