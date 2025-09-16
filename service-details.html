@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
@@ -73,6 +73,7 @@
                 <a href="#cloud" class="service-link" onclick="showContent(event, 'cloud')"><i class="bi bi-arrow-right-circle"></i><span>Cloud Services</span></a>
                 <a href="#db" class="service-link" onclick="showContent(event, 'db')"><i class="bi bi-arrow-right-circle"></i><span>Database Management</span></a>
                 <a href="#manserv" class="service-link" onclick="showContent(event, 'manserv')"><i class="bi bi-arrow-right-circle"></i><span>Managed Services</span></a>
+                <a href="#prodsupp" class="service-link" onclick="showContent(event, 'prodsupp')"><i class="bi bi-arrow-right-circle"></i><span>Production Support Services</span></a>
                 <a href="#bsa" class="service-link" onclick="showContent(event, 'bsa')"><i class="bi bi-arrow-right-circle"></i><span>BSA Services</span></a>
                 <a href="#qa" class="service-link" onclick="showContent(event, 'qa')"><i class="bi bi-arrow-right-circle"></i><span>QA Services</span></a>
                 <a href="#web" class="service-link" onclick="showContent(event, 'web')"><i class="bi bi-arrow-right-circle"></i><span>Web Technologies</span></a>
@@ -182,7 +183,6 @@
                 <li><i class="bi bi-shield-lock"></i> Enterprise-Grade Web Security</li>
                 <li><i class="bi bi-bar-chart-line"></i> Performance Optimization</li>
                 <li><i class="bi bi-people"></i> Custom Portals & Dashboards</li>
-                <li><i class="bi bi-people"></i> AI-Powered Chatbot Integration</li>
               </ul>
               <h4><strong>Why Organizations Choose NDS for Web Technologies:</strong></h4>
               <ul>
@@ -336,6 +336,31 @@
                <p><strong>Cloud Confidence, Delivered</strong></p>
                <p>With NDS as your cloud transformation partner, you gain more than just infrastructure — you gain the freedom to innovate, scale on demand, and stay resilient in an ever-changing digital world.</p>
                <img src="assets/img/Cloud-service-1.png" alt="" class="img-fluid services-img">
+            </div>
+
+              <div id="prodsupp" class="service-content d-none">
+              <h3>Production Support Services</h3>
+              <p>At NDS, our Production Support Services ensure that critical business applications run smoothly, reliably, and without disruption. We go beyond just fixing issues — we proactively monitor, maintain, and optimize systems, enabling businesses to operate with confidence and continuity.</p>
+              <p>Our Production Support experts act as guardians of stability, blending technical know-how with business understanding. From incident response to performance tuning, they ensure systems are always available, resilient, and delivering value.</p>
+               <h4><strong>What Our Production Support Team Does:</strong></h4>
+              <ul>
+                <li><i class="bi bi-check-circle"></i> <b>24/7 Incident Management:</b> Rapid identification and resolution of system issues to minimize downtime.</li>
+                <li><i class="bi bi-check-circle"></i> <b>Proactive Monitoring:</b> Continuous system health checks to prevent failures before they impact business.</li>
+                <li><i class="bi bi-check-circle"></i> <b>Root Cause Analysis:</b> Identifying and addressing underlying issues for long-term stability.</li>
+                <li><i class="bi bi-check-circle"></i> <b>Performance Optimization:</b> Fine-tuning applications and infrastructure for maximum efficiency.</li>
+                <li><i class="bi bi-check-circle"></i> <b>Change & Release Support:</b> Ensuring smooth deployment of updates with minimal disruption.</li>
+              </ul>
+              <h4><strong>Why Organizations Choose NDS for Production Support?</strong></h4>
+              <ul>
+                <li><i class="bi bi-check2-square"></i> <b>Business Continuity First:</b> Keeping mission-critical systems available around the clock.</li>
+                <li><i class="bi bi-check2-square"></i> <b>Reduced Downtime & Faster Recovery:</b> Quick resolution of incidents and proactive prevention.</li>
+                <li><i class="bi bi-check2-square"></i> <b>Scalable Support Models:</b> Tailored support to match business growth and complexity.</li>
+                <li><i class="bi bi-check2-square"></i> <b>Transparent Reporting:</b> Clear metrics, dashboards, and communication with stakeholders.</li>
+                <li><i class="bi bi-check2-square"></i> <b>Proven Expertise in Multi-Platform Environments:</b> Supporting diverse applications, databases, and infrastructures.</li>
+              </ul>
+               <p><strong>"With NDS Production Support, uptime isn’t just maintained — it’s maximized."</strong></p>
+              
+               <img src="assets/img/Prodsupp.png" alt="" class="img-fluid services-img">
             </div>
           </div>
         </div>
@@ -530,9 +555,6 @@ function showContent(event, id) {
   // Add 'active' to clicked sidebar link
   if (event) {
     event.currentTarget.classList.add('active');
-  } else {
-    // If event is not passed (default load), highlight Guidewire
-    document.querySelector('.service-link[href="#guidewire"]').classList.add('active');
   }
 }
 
@@ -550,9 +572,11 @@ document.addEventListener("DOMContentLoaded", function() {
   } else {
     // Default: Show Guidewire Solutions
     showContent(null, "guidewire");
+    document.querySelector('.service-link[href="#guidewire"]').classList.add('active');
   }
 });
 </script>
+
 
 
 <!-- <script>
